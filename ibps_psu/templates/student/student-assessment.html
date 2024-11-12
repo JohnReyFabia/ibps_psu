@@ -1,0 +1,67 @@
+{% extends "student/student-index.html" %}
+{% load static %} 
+
+{% block title %}Student Assessment{% endblock %}
+
+{% block style %}
+<!-- <link href="{% static 'css/pop-up.css' %}" rel="stylesheet"> -->
+<link rel="stylesheet" href="{% static 'css/style-student-assessment.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+    <br><br><br><br><br>
+    
+    <form method="post" action="{% url 'burnout_assessment:student-survey' student_id=student_id %}">
+        {% csrf_token %}
+      
+        {% for field in form %}
+        <div id="step{{ forloop.counter }}" class="poll {% if forloop.first %}visible{% else %}hidden{% endif %}">
+          <div class="quezt">
+            <h3 class="title"><b>{{ field.label }}</b></h3>
+            <img src="{% static 'img/question-imgs/q' %}{{ forloop.counter }}.png" alt="">
+          </div>
+      
+          <div id="flexz" class="pollz">
+            <ul class="options-list">
+              {% for radio in field %}
+              <li class="option {% if radio.checked %}selected{% endif %}">
+                <input type="radio" id="{{ radio.id_for_input }}" name="{{ radio.name }}">
+                {{ radio.tag }}
+                <label class="labels" for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
+              </li>
+              {% endfor %}
+            </ul>
+      
+            {{ field.errors }}
+            <div class="button-box">
+              {% if not forloop.first %}
+              <button type="button" id="prevBtn" class="button-trigger-back" onclick="prevStep({{ forloop.counter }})">Back</button>
+              {% endif %}
+              {% if not forloop.last %}
+              <button type="button" id="nextBtn" class="button-trigger" onclick="nextStep({{ forloop.counter|add:1 }})">Next</button>
+              {% elif forloop.last %}
+              <button type="submit" id="submitBtn" class="button-trigger">Submit</button>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+    </form>
+      
+
+    <!-- The pop-up container
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        
+        <p>It is recommended to update your profile information. Click the button below to get started:</p>
+        <a href="{% url 'landingpage:edit-profile' %}" class="update-profile-btn">Update Profile</a>
+      </div>
+    </div> -->
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/assesssment-script.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,583 @@
+ex_high,cy_high,ef_high,profiles
+0,1,0,Disengaged and Ineffective
+1,1,0,Burned Out
+0,0,0,Ineffective
+1,0,0,Overextended and Ineffective
+1,0,0,Overextended and Ineffective
+1,1,0,Burned Out
+0,0,0,Ineffective
+0,1,0,Disengaged and Ineffective
+1,0,1,Overextended
+1,0,1,Overextended
+0,1,0,Disengaged and Ineffective
+1,1,0,Burned Out
+0,0,1,Engaged
+1,0,1,Overextended
+1,0,0,Overextended and Ineffective
+0,0,0,Ineffective
+1,0,0,Overextended and Ineffective
+1,1,0,Burned Out
+0,0,0,Ineffective
+0,0,0,Ineffective
+1,1,0,Burned Out
+0,0,0,Ineffective
+0,0,1,Engaged
+0,1,0,Disengaged and Ineffective
+0,0,1,Engaged
+0,0,0,Ineffective
+0,0,1,Engaged
+0,0,0,Ineffective
+1,0,1,Overextended
+0,0,1,Engaged
+1,0,0,Overextended and Ineffective
+0,0,1,Engaged
+1,1,0,Burned Out
+1,1,0,Burned Out
+0,0,1,Engaged
+1,1,0,Burned Out
+1,0,0,Overextended and Ineffective
+0,1,0,Disengaged and Ineffective
+1,0,0,Overextended and Ineffective
+0,1,0,Disengaged and Ineffective
+1,1,0,Burned Out
+0,0,1,Engaged
+0,0,0,Ineffective
+1,1,0,Burned Out
+0,0,0,Ineffective
+0,1,0,Disengaged and Ineffective
+0,1,0,Disengaged and Ineffective
+0,1,0,Disengaged and Ineffective
+1,0,1,Overextended
+0,0,1,Engaged
+1,0,0,Overextended and Ineffective
+1,0,1,Overextended
+1,0,1,Overextended
+0,0,1,Engaged
+1,1,0,Burned Out
+1,1,0,Burned Out
+1,0,1,Overextended
+1,0,1,Overextended
+1,0,1,Overextended
+1,1,0,Burned Out
+1,0,1,Overextended
+1,1,0,Burned Out
+0,0,1,Engaged
+0,0,0,Ineffective
+0,1,0,Disengaged and Ineffective
+0,1,0,Disengaged and Ineffective
+0,0,0,Ineffective
+1,0,1,Overextended
+0,0,1,Engaged
+0,0,1,Engaged
+0,1,0,Disengaged and Ineffective
+0,0,0,Ineffective
+1,0,0,Overextended and Ineffective
+1,0,0,Overextended and Ineffective
+0,0,1,Engaged
+0,0,1,Engaged
+0,0,1,Engaged
+0,0,0,Ineffective
+1,1,0,Burned Out
+1,0,0,Overextended and Ineffective
+0,0,1,Engaged
+0,0,0,Ineffective
+1,0,0,Overextended and Ineffective
+1,1,0,Burned Out
+0,0,1,Engaged
+1,0,0,Overextended and Ineffective
+0,1,0,Disengaged and Ineffective
+1,1,0,Burned Out
+0,0,0,Ineffective
+0,1,0,Disengaged and Ineffective
+1,0,1,Overextended
+1,0,0,Overextended and Ineffective
+1,1,0,Burned Out
+0,0,0,Ineffective
+0,1,0,Disengaged and Ineffective
+0,0,0,Ineffective
+0,0,1,Engaged
+0,1,0,Disengaged and Ineffective
+1,1,0,Burned Out
+0,0,0,Ineffective
+0,1,0,Disengaged and Ineffective
+1,0,1,Overextended
+1,0,0,Overextended and Ineffective
+0,0,1,Engaged
+0,0,1,Engaged
+1,0,0,Overextended and Ineffective
+1,0,1,Overextended
+0,0,0,Ineffective
+0,1,0,Disengaged and Ineffective
+0,1,0,Disengaged and Ineffective
+1,0,1,Overextended
+0,0,1,Engaged
+1,1,0,Burned Out
+0,1,0,Disengaged and Ineffective
+0,0,1,Engaged
+1,0,0,Overextended and Ineffective
+0,0,1,Engaged
+1,0,0,Overextended and Ineffective
+0,0,0,Ineffective
+0,0,1,Engaged
+1,0,0,Overextended and Ineffective
+0,0,0,Ineffective
+1,1,0,Burned Out
+0,1,0,Disengaged and Ineffective
+0,0,0,Ineffective
+1,0,1,Overextended
+0,0,1,Engaged
+0,0,1,Engaged
+0,0,0,Ineffective
+0,0,0,Ineffective
+0,0,1,Engaged
+1,0,0,Overextended and Ineffective
+0,0,0,Ineffective
+0,0,1,Engaged
+0,1,0,Disengaged and Ineffective
+0,0,1,Engaged
+0,1,0,Disengaged and Ineffective
+1,0,0,Overextended and Ineffective
+1,0,1,Overextended
+1,0,0,Overextended and Ineffective
+0,1,0,Disengaged and Ineffective
+0,0,0,Ineffective
+1,0,1,Overextended
+1,1,0,Burned Out
+0,1,0,Disengaged and Ineffective
+1,0,1,Overextended
+0,0,1,Engaged
+0,0,0,Ineffective
+0,0,1,Engaged
+0,0,1,Engaged
+0,1,0,Disengaged and Ineffective
+0,0,0,Ineffective
+0,0,1,Engaged
+1,0,0,Overextended and Ineffective
+1,0,1,Overextended
+0,0,0,Ineffective
+0,1,0,Disengaged and Ineffective
+1,1,0,Burned Out
+0,1,0,Disengaged and Ineffective
+0,1,0,Disengaged and Ineffective
+0,0,0,Ineffective
+1,0,0,Overextended and Ineffective
+0,0,0,Ineffective
+1,0,1,Overextended
+0,0,1,Engaged
+0,1,0,Disengaged and Ineffective
+0,0,1,Engaged
+0,0,1,Engaged
+1,0,1,Overextended
+0,0,1,Engaged
+1,1,0,Burned Out
+0,1,0,Disengaged and Ineffective
+0,1,0,Disengaged and Ineffective
+1,0,0,Overextended and Ineffective
+0,1,0,Disengaged and Ineffective
+1,0,1,Overextended
+0,0,0,Ineffective
+1,0,0,Overextended and Ineffective
+0,1,0,Disengaged and Ineffective
+1,0,0,Overextended and Ineffective
+0,0,0,Ineffective
+1,0,1,Overextended
+0,1,0,Disengaged and Ineffective
+0,1,0,Disengaged and Ineffective
+1,1,0,Burned Out
+0,1,0,Disengaged and Ineffective
+1,0,0,Overextended and Ineffective
+1,0,1,Overextended
+0,0,1,Engaged
+0,0,0,Ineffective
+1,0,0,Overextended and Ineffective
+1,0,0,Overextended and Ineffective
+1,1,0,Burned Out
+1,1,0,Burned Out
+1,1,0,Burned Out
+1,1,0,Burned Out
+0,0,1,Engaged
+0,0,0,Ineffective
+1,0,1,Overextended
+0,1,0,Disengaged and Ineffective
+0,1,0,Disengaged and Ineffective
+1,0,0,Overextended and Ineffective
+1,0,0,Overextended and Ineffective
+1,0,1,Overextended
+0,0,1,Engaged
+0,1,0,Disengaged and Ineffective
+0,0,1,Engaged
+0,0,0,Ineffective
+1,0,0,Overextended and Ineffective
+1,0,0,Overextended and Ineffective
+1,1,0,Burned Out
+1,0,1,Overextended
+1,0,0,Overextended and Ineffective
+1,1,0,Burned Out
+1,1,0,Burned Out
+0,0,0,Ineffective
+1,1,0,Burned Out
+0,0,0,Ineffective
+0,0,0,Ineffective
+1,0,1,Overextended
+1,1,0,Burned Out
+1,1,0,Burned Out
+1,0,1,Overextended
+1,1,0,Burned Out
+0,0,0,Ineffective
+1,1,0,Burned Out
+1,0,1,Overextended
+1,0,1,Overextended
+0,0,1,Engaged
+1,0,0,Overextended and Ineffective
+1,1,0,Burned Out
+0,1,0,Disengaged and Ineffective
+0,0,0,Ineffective
+0,0,1,Engaged
+0,0,1,Engaged
+0,0,1,Engaged
+0,0,1,Engaged
+0,0,0,Ineffective
+1,1,0,Burned Out
+1,1,0,Burned Out
+0,0,1,Engaged
+0,1,0,Disengaged and Ineffective
+1,0,1,Overextended
+1,0,1,Overextended
+0,0,0,Ineffective
+1,0,1,Overextended
+1,1,0,Burned Out
+0,0,1,Engaged
+1,0,0,Overextended and Ineffective
+0,1,0,Disengaged and Ineffective
+1,0,1,Overextended
+0,0,1,Engaged
+0,1,0,Disengaged and Ineffective
+0,0,1,Engaged
+1,1,0,Burned Out
+1,0,1,Overextended
+0,1,0,Disengaged and Ineffective
+1,0,0,Overextended and Ineffective
+0,0,0,Ineffective
+0,0,1,Engaged
+1,1,0,Burned Out
+0,1,0,Disengaged and Ineffective
+1,1,0,Burned Out
+0,0,1,Engaged
+0,0,1,Engaged
+1,1,0,Burned Out
+1,0,1,Overextended
+1,0,1,Overextended
+0,0,0,Ineffective
+0,0,0,Ineffective
+0,1,0,Disengaged and Ineffective
+1,0,0,Overextended and Ineffective
+1,0,0,Overextended and Ineffective
+0,1,0,Disengaged and Ineffective
+1,0,1,Overextended
+0,0,1,Engaged
+1,0,0,Overextended and Ineffective
+1,1,0,Burned Out
+0,0,1,Engaged
+0,0,0,Ineffective
+0,0,0,Ineffective
+0,0,1,Engaged
+1,0,0,Overextended and Ineffective
+0,1,0,Disengaged and Ineffective
+0,0,0,Ineffective
+1,0,0,Overextended and Ineffective
+1,0,1,Overextended
+0,0,0,Ineffective
+1,0,0,Overextended and Ineffective
+0,1,0,Disengaged and Ineffective
+1,0,0,Overextended and Ineffective
+0,0,1,Engaged
+1,0,1,Overextended
+1,1,0,Burned Out
+1,1,0,Burned Out
+1,0,0,Overextended and Ineffective
+0,0,0,Ineffective
+0,1,0,Disengaged and Ineffective
+1,0,1,Overextended
+1,0,0,Overextended and Ineffective
+1,0,0,Overextended and Ineffective
+1,1,0,Burned Out
+0,0,1,Engaged
+1,0,1,Overextended
+0,0,1,Engaged
+0,0,0,Ineffective
+0,1,0,Disengaged and Ineffective
+1,0,0,Overextended and Ineffective
+1,0,1,Overextended
+0,1,0,Disengaged and Ineffective
+1,0,0,Overextended and Ineffective
+0,0,0,Ineffective
+1,1,0,Burned Out
+1,0,1,Overextended
+1,1,0,Burned Out
+1,0,1,Overextended
+0,1,0,Disengaged and Ineffective
+1,0,1,Overextended
+0,0,1,Engaged
+0,0,1,Engaged
+1,1,0,Burned Out
+1,1,0,Burned Out
+0,1,0,Disengaged and Ineffective
+0,0,1,Engaged
+0,0,0,Ineffective
+0,0,0,Ineffective
+0,0,0,Ineffective
+1,1,0,Burned Out
+0,1,0,Disengaged and Ineffective
+1,1,0,Burned Out
+1,0,1,Overextended
+1,1,0,Burned Out
+0,1,0,Disengaged and Ineffective
+0,0,1,Engaged
+0,0,0,Ineffective
+1,1,0,Burned Out
+0,0,1,Engaged
+1,0,1,Overextended
+0,0,1,Engaged
+0,1,0,Disengaged and Ineffective
+0,0,1,Engaged
+0,1,0,Disengaged and Ineffective
+1,1,0,Burned Out
+1,0,1,Overextended
+1,0,0,Overextended and Ineffective
+1,0,0,Overextended and Ineffective
+1,0,1,Overextended
+1,0,1,Overextended
+0,0,0,Ineffective
+1,0,1,Overextended
+1,0,1,Overextended
+1,1,0,Burned Out
+1,1,0,Burned Out
+1,1,0,Burned Out
+1,0,0,Overextended and Ineffective
+1,1,0,Burned Out
+0,0,1,Engaged
+0,0,0,Ineffective
+1,1,0,Burned Out
+1,1,0,Burned Out
+1,0,1,Overextended
+1,0,1,Overextended
+0,1,0,Disengaged and Ineffective
+1,0,0,Overextended and Ineffective
+0,1,0,Disengaged and Ineffective
+0,1,0,Disengaged and Ineffective
+0,0,0,Ineffective
+1,0,1,Overextended
+1,0,1,Overextended
+1,0,1,Overextended
+0,0,0,Ineffective
+1,0,0,Overextended and Ineffective
+0,0,1,Engaged
+0,1,0,Disengaged and Ineffective
+1,0,1,Overextended
+1,0,0,Overextended and Ineffective
+0,1,0,Disengaged and Ineffective
+0,1,0,Disengaged and Ineffective
+1,0,0,Overextended and Ineffective
+0,0,0,Ineffective
+1,1,0,Burned Out
+1,0,0,Overextended and Ineffective
+1,0,0,Overextended and Ineffective
+1,0,0,Overextended and Ineffective
+1,0,1,Overextended
+0,0,1,Engaged
+0,0,0,Ineffective
+1,0,0,Overextended and Ineffective
+1,0,0,Overextended and Ineffective
+1,0,1,Overextended
+1,1,0,Burned Out
+0,0,1,Engaged
+1,0,0,Overextended and Ineffective
+0,0,1,Engaged
+1,1,0,Burned Out
+0,0,0,Ineffective
+0,0,0,Ineffective
+1,1,0,Burned Out
+1,0,0,Overextended and Ineffective
+1,0,0,Overextended and Ineffective
+0,1,0,Disengaged and Ineffective
+1,1,0,Burned Out
+0,0,0,Ineffective
+1,0,0,Overextended and Ineffective
+0,0,0,Ineffective
+0,1,0,Disengaged and Ineffective
+1,0,1,Overextended
+1,0,1,Overextended
+1,0,0,Overextended and Ineffective
+0,1,0,Disengaged and Ineffective
+1,0,0,Overextended and Ineffective
+1,0,1,Overextended
+1,0,1,Overextended
+0,1,0,Disengaged and Ineffective
+1,1,0,Burned Out
+0,1,0,Disengaged and Ineffective
+0,0,1,Engaged
+0,0,0,Ineffective
+1,0,0,Overextended and Ineffective
+0,0,0,Ineffective
+0,0,0,Ineffective
+0,1,0,Disengaged and Ineffective
+0,0,1,Engaged
+0,0,1,Engaged
+0,0,1,Engaged
+1,1,0,Burned Out
+0,0,0,Ineffective
+1,1,0,Burned Out
+1,0,1,Overextended
+0,1,0,Disengaged and Ineffective
+1,0,0,Overextended and Ineffective
+0,0,1,Engaged
+0,0,1,Engaged
+0,0,1,Engaged
+0,0,1,Engaged
+1,0,0,Overextended and Ineffective
+0,0,0,Ineffective
+1,0,0,Overextended and Ineffective
+0,1,0,Disengaged and Ineffective
+0,0,0,Ineffective
+0,1,0,Disengaged and Ineffective
+0,1,0,Disengaged and Ineffective
+0,1,0,Disengaged and Ineffective
+1,1,0,Burned Out
+1,0,0,Overextended and Ineffective
+1,0,1,Overextended
+0,1,0,Disengaged and Ineffective
+0,0,1,Engaged
+0,1,0,Disengaged and Ineffective
+1,0,1,Overextended
+0,1,0,Disengaged and Ineffective
+0,1,0,Disengaged and Ineffective
+1,0,0,Overextended and Ineffective
+1,0,1,Overextended
+1,1,0,Burned Out
+1,0,1,Overextended
+1,0,1,Overextended
+1,1,0,Burned Out
+0,0,1,Engaged
+0,0,0,Ineffective
+1,1,0,Burned Out
+0,1,0,Disengaged and Ineffective
+0,1,0,Disengaged and Ineffective
+1,0,0,Overextended and Ineffective
+1,0,0,Overextended and Ineffective
+0,0,1,Engaged
+1,0,0,Overextended and Ineffective
+0,1,0,Disengaged and Ineffective
+1,0,1,Overextended
+1,0,1,Overextended
+1,0,1,Overextended
+0,0,0,Ineffective
+1,1,0,Burned Out
+0,0,0,Ineffective
+0,0,1,Engaged
+0,0,0,Ineffective
+0,0,1,Engaged
+1,0,1,Overextended
+0,0,0,Ineffective
+1,1,0,Burned Out
+1,1,0,Burned Out
+0,0,0,Ineffective
+1,0,0,Overextended and Ineffective
+0,0,1,Engaged
+0,1,0,Disengaged and Ineffective
+0,0,0,Ineffective
+1,1,0,Burned Out
+1,0,1,Overextended
+1,1,0,Burned Out
+0,0,0,Ineffective
+0,0,0,Ineffective
+1,0,1,Overextended
+0,1,0,Disengaged and Ineffective
+0,1,0,Disengaged and Ineffective
+1,0,0,Overextended and Ineffective
+1,0,0,Overextended and Ineffective
+0,0,1,Engaged
+0,1,0,Disengaged and Ineffective
+0,0,0,Ineffective
+0,1,0,Disengaged and Ineffective
+0,0,0,Ineffective
+1,1,0,Burned Out
+1,0,1,Overextended
+0,0,1,Engaged
+1,1,0,Burned Out
+1,0,0,Overextended and Ineffective
+0,0,1,Engaged
+1,0,1,Overextended
+0,1,0,Disengaged and Ineffective
+1,0,1,Overextended
+1,0,1,Overextended
+0,1,0,Disengaged and Ineffective
+0,0,1,Engaged
+0,0,0,Ineffective
+1,0,1,Overextended
+1,1,0,Burned Out
+1,1,0,Burned Out
+1,0,0,Overextended and Ineffective
+1,0,0,Overextended and Ineffective
+0,1,0,Disengaged and Ineffective
+1,1,0,Burned Out
+1,0,0,Overextended and Ineffective
+0,0,0,Ineffective
+1,0,1,Overextended
+1,0,0,Overextended and Ineffective
+1,1,0,Burned Out
+1,0,1,Overextended
+1,0,1,Overextended
+0,1,0,Disengaged and Ineffective
+1,0,0,Overextended and Ineffective
+0,0,1,Engaged
+0,0,1,Engaged
+0,1,0,Disengaged and Ineffective
+0,0,0,Ineffective
+1,0,0,Overextended and Ineffective
+1,0,1,Overextended
+0,0,1,Engaged
+1,0,1,Overextended
+1,0,1,Overextended
+1,1,0,Burned Out
+1,0,1,Overextended
+1,1,0,Burned Out
+1,0,1,Overextended
+1,1,0,Burned Out
+0,0,0,Ineffective
+0,1,0,Disengaged and Ineffective
+1,0,0,Overextended and Ineffective
+0,1,0,Disengaged and Ineffective
+0,1,0,Disengaged and Ineffective
+1,1,0,Burned Out
+0,0,1,Engaged
+1,0,0,Overextended and Ineffective
+0,1,0,Disengaged and Ineffective
+0,0,1,Engaged
+1,0,0,Overextended and Ineffective
+1,1,0,Burned Out
+0,0,0,Ineffective
+1,1,0,Burned Out
+1,0,0,Overextended and Ineffective
+0,0,0,Ineffective
+1,1,0,Burned Out
+0,0,1,Engaged
+1,0,1,Overextended
+0,0,0,Ineffective
+1,0,0,Overextended and Ineffective
+1,0,1,Overextended
+1,1,0,Burned Out
+0,0,0,Ineffective
+1,0,0,Overextended and Ineffective
+1,0,1,Overextended
+1,0,0,Overextended and Ineffective
+1,0,0,Overextended and Ineffective
+1,1,0,Burned Out
+0,0,0,Ineffective
+1,0,0,Overextended and Ineffective
+0,0,0,Ineffective
+1,0,1,Overextended
+0,0,1,Engaged
+0,0,0,Ineffective
+1,1,0,Burned Out
+1,0,0,Overextended and Ineffective
+0,0,0,Ineffective

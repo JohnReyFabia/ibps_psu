@@ -1,0 +1,46 @@
+counselors account
+
+CAH
+email: cahcounselor@psu.palawan.edu.ph
+id: 0001
+pass: cahpass
+
+CBA
+email: cbacounselor@psu.palawan.edu.ph
+id: 0002
+pass: cbapass
+
+CCJE
+email: ccjecounselor@psu.palawan.edu.ph
+id: 0003
+pass: ccjepass
+
+
+CEAT
+email: ceatcounselor@psu.palawan.edu.ph
+id: 0004
+pass: ceatpass
+
+
+CHTM
+email: chtmcounselor@psu.palawan.edu.ph
+id: 0005
+pass: chtmpass
+
+
+CNHS
+email: cnhscounselor@psu.palawan.edu.ph
+id: 0006
+pass: cnhspass
+
+
+CS
+email: cscounselor@psu.palawan.edu.ph
+id: 0007
+pass: cspass
+
+
+CTE
+email: ctecounselor@psu.palawan.edu.ph
+id: 0008
+pass: ctepass

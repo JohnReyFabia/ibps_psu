@@ -1,0 +1,43 @@
+{% extends "student/student-index.html" %}
+{% load static %} 
+
+{% block title %}Student Assessment{% endblock %}
+
+{% block style %}<link href="{% static 'css/assessment-2.css' %}" rel="stylesheet">{% endblock %}
+
+{% block content %}
+
+<main id="main">
+  <!-- ======= About Section ======= -->
+  <section id="assess" class="assess d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 assess-img" data-aos="zoom-out" data-aos-delay="200">
+          <img src="{% static 'img/assessment1.png' %}" class="img-fluid" alt="">
+        </div>
+        <div class="col-lg-6 d-flex flex-column justify-content-center">
+          <h1 data-aos="fade-up">Burnout Assessment Test</h1>
+          <h2 data-aos="fade-up" data-aos-delay="400">The following are 15 statements of university-related feelings from Maslach Burnout Inventory. Please read each statement carefully and determine if it resonates with your feelings toward your academic workload. If you've never experienced the described feeling, select the "Never" option. If you have, indicate its frequency by choosing the phrase that best matches your experience in a year.</h2>
+          <div data-aos="fade-up" data-aos-delay="600">
+            <div class="text-center text-lg-start">
+              <a href="{% url 'burnout_assessment:student-survey' student_id=student_id %}" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                <span>Take Test!</span>
+              </a>
+            </div>
+            <div class="text-center text-lg-back">
+              <a href="{% url 'landingpage:student-assessment1' %}" class="btn-go-back scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                <i class="bi bi-arrow-left"></i>
+                <span>Go Back</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</main><!-- End #main -->
+
+{% endblock %}

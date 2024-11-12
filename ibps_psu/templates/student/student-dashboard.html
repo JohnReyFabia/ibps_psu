@@ -1,0 +1,159 @@
+{% extends "student/student-index.html" %}
+{% load static %} 
+{% load split_tag %}
+{% block title %}Student Assessment{% endblock %}
+
+{% block style %}
+<link href="{% static 'css/student-dashboard.css' %}" rel="stylesheet">
+<link href="{% static 'css/pop-up.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<main id="main">
+  <section class="student">
+
+    <!-- The pop-up container -->
+    <div id="popup" class="popup">
+      <div class="popup-content">
+          
+        <p>It is recommended to update your password. Click the button below to get started:</p>
+        <a href="{% url 'landingpage:change-password' %}" class="update-profile-btn">Change Password</a>
+      </div>
+    </div>
+
+    <div class="container" data-aos="fade-up">
+
+      <header class="section-header">
+        <div class="header-content">
+          <div class="header-text">
+            <p>Welcome, {{ student.first_name }} {{ student.last_name }}!</p>
+          </div>
+        </div>
+      </header>
+      
+
+      <div class="row gy-4">
+
+        <div class="col-lg-4 col-md-12 " data-aos="fade-up" data-aos-delay="300">
+          <div class="student-box quote1">
+            <h3>“Happiness is not the absence of problems, it's the ability to deal with them.”</h3>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-12 " data-aos="fade-up" data-aos-delay="300">
+          <div class="student-box quote2">
+            <p class="details-title">Daily Reminder!</p>
+            <h3>It’s okay to not be okay, Let’s care for ourselves, Self is more.</h3>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-12 " data-aos="fade-up" data-aos-delay="300">
+          <div class="student-box quote3">
+            <h3>“Don’t wait for the perfect moment; take the moment and make it perfect”</h3>
+          </div>
+        </div>
+
+        <div class="col-lg-7 col-md-12" data-aos="fade-up" data-aos-delay="400">
+
+          
+          <div class="student-box details">
+            {% if burnout_assessment %}
+                <img src="{{ burnout_assessment.profile.pic.url }}" alt=" " class="profile"  >
+                <p class="profile-title">{{ burnout_assessment.profile }}</p>               
+                
+                {% for keywords in top_keywords %}
+                  <li class="profile-details">
+                    <span class="keyword">{{ keywords.keywords }}</span>
+                    <span class="answer">{{ keywords.answer }}</span>
+                  </li>
+                {% endfor %}
+                <p class="profile-desc">{{ burnout_assessment.profile.description|first_sentence }}</p>
+                
+            {% else %}
+                <p>No burnout assessment available.</p>
+            {% endif %}
+          </div>
+        
+        </div>
+
+        <div class="col-lg-5 col-md-12" data-aos="fade-up" data-aos-delay="400">
+          <div class="student-box details help">
+            <p class="title">Feel like you need help?</p>
+            <img src="{% static 'img/appointment.png' %}" alt="">
+            <div class="appointment-container">
+              <a href="" id="sendAppointmentButton" class="appointment-button">Send a message to your Counselor</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Services Section -->
+
+
+</main><!-- End #main -->
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const sendAppointmentButton = document.getElementById('sendAppointmentButton');
+  const popup = document.getElementById('popup');
+
+  sendAppointmentButton.addEventListener('click', function (event) {
+    event.preventDefault();  
+
+    // Make an AJAX request to get the counselor's email
+    const studentId = "{{ student.id }}";  
+    const ajaxUrl = `/get-counselor-email/${studentId}/`;
+
+    fetch(ajaxUrl)
+      .then(response => response.json())
+      .then(data => {
+        if (data.counselor_email) {
+          const studentEmail = "{{ student.email }}";
+          const studentName = "{{ student.first_name }} {{ student.middle_name }} {{ student.last_name }}";
+
+          // Create the Gmail compose URL with the recipient's email, subject, and initial message
+          const subject = "Appointment Request";
+          const initialMessage = `Dear College Counselor,
+
+I hope this message finds you well. I am reaching out to schedule a consultation regarding my Burnout Assessment Result.
+
+[You can add more details].
+
+Best regards,
+${studentName}`;
+
+          // Encode the message for the URL
+          const encodedMessage = encodeURIComponent(initialMessage);
+
+          // Create the Gmail compose URL
+          const gmailComposeUrl = `mailto:${data.counselor_email}?subject=${subject}&body=${encodedMessage}`;
+
+          // Redirect to Gmail compose URL
+          window.location.href = gmailComposeUrl;
+        } else {
+          console.error('Error fetching counselor email:', data.error);
+        }
+      })
+      .catch(error => console.error('Error fetching counselor email:', error));
+  });
+
+  // JavaScript to show the pop-up when the student first register
+  window.addEventListener('load', function () {
+  var passwordUpdated = {% if student.is_password_updated %}true{% else %}false{% endif %};
+
+  if (!passwordUpdated) {
+    popup.style.display = 'block';
+    }
+  });
+});
+
+</script>
+
+
+{% endblock %}

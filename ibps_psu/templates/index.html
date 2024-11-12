@@ -1,0 +1,477 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>IBPS</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+
+    <link href="{% static 'img/ibps-logo.png' %}" rel="icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top">
+      <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+        <a href="{% url 'landingpage:home' %}" class="logo d-flex align-items-center">
+          <img src="{% static 'img/psu/psu.png' %}" alt="">
+          <img src="{% static 'img/psu/cs.png' %}" alt="">
+          <img src="{% static 'img/psu/osas.png' %}" alt="">
+          <span>IBPS-PSU</span>
+        </a>
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+            <li><a class="nav-link scrollto" href="#about">About</a></li>
+            <li><a class="nav-link scrollto" href="#services">Burnout Profiles</a></li>
+            <li><a class="nav-link scrollto" href="#team">Team</a></li>
+            <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+            <li><a class="getstarted scrollto" href="{% url 'landingpage:login' %}">Sign In</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+
+        </nav><!-- .navbar -->
+
+      </div>
+    </header><!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="hero d-flex align-items-center">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 d-flex flex-column justify-content-center">
+            <h1 data-aos="fade-up">We offer modern solutions for growing your business</h1>
+            <h2 data-aos="fade-up" data-aos-delay="400">We are team of talented designers making websites with Bootstrap</h2>
+            <div data-aos="fade-up" data-aos-delay="600">
+              <div class="text-center text-lg-start">
+                <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                  <span>Get Started</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+            <img src="{% static 'img/hero-img.png' %}" class="img-fluid" alt="">
+          </div>
+        </div>
+      </div>
+
+    </section><!-- End Hero -->
+
+    <main id="main">
+      <!-- ======= About Section ======= -->
+      <section id="about" class="about">
+
+        <div class="container" data-aos="fade-up">
+          <div class="row gx-0">
+
+            <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+              <div class="content">
+                <h3>About IBPS</h3>
+                <h2>Identification of Burnout Presence to the Students of Palawan State University with Automated Responses as Reinforcement through Natural Language Processing</h2>
+                <p>
+                  Welcome to our research endeavor, centered around the exploration of burnout within the vibrant community of Palawan State University. 
+                  Our study, titled <b>"Identification of Burnout Presence to the Students of Palawan State University with Automated Responses as Reinforcement 
+                  through Natural Language Processing,"</b> is a pioneering initiative driven by a commitment to student well-being and technological innovation.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+              <img src="{% static 'img/about.png' %}" class="img-fluid" alt="">
+            </div>
+
+          </div>
+        </div>
+
+      </section><!-- End About Section -->
+    
+      <!-- ======= Features Section ======= -->
+      <section id="about" class="features">
+
+        <div class="container" data-aos="fade-up">
+          <div class="row feature-icons" data-aos="fade-up">
+            <div class="row">
+              <div class="col-xl-12 d-flex content">
+                <div class="row align-self-center gy-4">
+
+                  <div class="col-md-4 icon-box" data-aos="fade-up">
+                    <i class="ri-line-chart-line"></i>
+                    <div>
+                      <h4>Understanding Burnout</h4>
+                      <p>At the heart of our study is a profound understanding of the challenges faced by students in today's fast-paced academic environment. We recognize that the journey through higher education can be demanding, often leading to burnout—a condition that affects both academic performance and mental health. Our mission is to shed light on the presence of burnout, 
+                        identify its signs, and intervene effectively to provide much-needed support to our fellow students.</p>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 icon-box" data-aos="fade-up" data-aos-delay="100">
+                    <i class="ri-stack-line"></i>
+                    <div>
+                      <h4>Harnessing the Power of Technology</h4>
+                      <p>To achieve this, we are harnessing the transformative potential of Natural Language Processing (NLP). This cutting-edge technology enables us to analyze and interpret the emotional states of students through their expressions. By leveraging NLP, we aim to not only detect the early signs 
+                        of burnout but also provide automated responses as reinforcement, fostering resilience, and well-being among our peers.</p>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 icon-box" data-aos="fade-up" data-aos-delay="100">
+                    <i class="ri-brush-4-line"></i>
+                    <div>
+                      <h4>Empowering Students</h4>
+                      <p>Our study goes beyond traditional research—it is a call to action. We believe that every student at Palawan State University deserves the opportunity to thrive academically and emotionally. 
+                        Through our research, we seek to empower students by equipping them with the knowledge and resources needed to combat burnout effectively.</p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div><!-- End Feature Icons -->
+        </div>
+
+      </section><!-- End Features Section -->
+
+      <!-- ======= Values Section ======= -->
+      <section id="about" class="pricing">
+
+        <div class="container" data-aos="fade-up">
+
+          <header class="section-header">
+            <h2>Our Values</h2>
+          </header>
+
+          <div class="row gy-4" data-aos="fade-left">
+            <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+              <div class="box">
+                <h3>Unveiling Student Sentiments</h3>
+                <img src="{% static 'img/features.png' %}" class="img-fluid" alt="">
+                <p>At the core of our study is the quest to uncover and understand the various methods and tools available for analyzing the sentiments of students within Palawan State University. By delving into the emotional experiences of our student community, we seek to identify subtle signs of burnout and provide a more comprehensive view of their mental health.</p>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+              <div class="box">
+                <h3>Harnessing NLP for Support</h3>
+                <img src="{% static 'img/features-2.png' %}" class="img-fluid" alt="">
+                <p>We're passionate about harnessing the power of cutting-edge Natural Language Processing (NLP) techniques to offer timely interventions and support to students who may be experiencing burnout. In a digital age, we believe that technology can be a powerful tool for improving overall student well-being and academic success. <b style="visibility: hidden;">for improving overall.</b></p>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+              <div class="box">
+                <h3>Efficiency through Automation</h3>
+                <img src="{% static 'img/values-3.png' %}" class="img-fluid" alt="">
+                <p>In our commitment to student support, we're dedicated to streamlining the assessment process. This includes automating the computation of burnout assessment scores and designing an intuitive, user-friendly platform for administering assessments. Our goal is to make accessing help and support as simple and efficient as possible for students.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section><!-- End Values Section -->
+
+      <!-- ======= Services Section ======= -->
+      <section id="services" class="services">
+
+        <div class="container" data-aos="fade-up">
+
+          <header class="section-header">
+            <h2>Burnout Profiles</h2>
+            <!-- <p>Find Your Burnout Profile</p> -->
+          </header>
+
+          <div class="row gy-4">
+            {% for profile in profile %}
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+              <div class="service-box {% if forloop.counter == 1 %}one{% elif forloop.counter == 2 %}two{% elif forloop.counter == 3 %}three{% elif forloop.counter == 4 %}four{% elif forloop.counter == 5 %}five{% elif forloop.counter == 6 %}six{% elif forloop.counter == 7 %}seven{% elif forloop.counter == 8 %}eight{% endif %}">
+                <img src="{{ profile.pic }}" class="img-fluid" alt="">
+                <h3>{{ profile.profile }}</h3>
+              </div>
+            </div>
+          {% endfor %}
+
+          </div>
+        </div>
+
+      </section><!-- End Services Section -->
+
+
+      <!-- ======= Team Section ======= -->
+      <section id="team" class="team">
+
+        <div class="container" data-aos="fade-up">
+
+          <header class="section-header">
+            <h2>Team</h2>
+            <p>Our hardworking team</p>
+          </header>
+
+          <div class="row gy-4">
+
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+              <div class="member">
+                <div class="member-img">
+                  <img src="{% static 'img/psu/abalus.JPG' %}" class="img-fluid" alt="">
+                  <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>James Rodolfo L. Abalus</h4>
+                  <span>Programmer</span>
+                  <p><b>"Learn, Grow, Flourish: Nurturing Well-being in Every Student"</b></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+              <div class="member">
+                <div class="member-img">
+                  <img src="{% static 'img/psu/milan.JPG' %}" class="img-fluid" alt="">
+                  <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>Vander Syd D. Milan</h4>
+                  <span>Programmer</span>
+                  <p><b>"Empower Your Mind, Fuel Your Body, Thrive in Your Studies"</b></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+              <div class="member">
+                <div class="member-img">
+                  <img src="{% static 'img/psu/rancap.JPG' %}" class="img-fluid" alt="">
+                  <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>Maria Czarlette Trixia G. Rancap</h4>
+                  <span>Programmer</span>
+                  <p><b>"Strive for Balance, Excel in Every Realm"</b></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+              <div class="member">
+                <div class="member-img">
+                  <img src="{% static 'img/psu/rodriguez.JPG' %}" class="img-fluid" alt="">
+                  <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>Ramon Alejandro D. Rodriguez</h4>
+                  <span>Programmer</span>
+                  <p><b>"Resilient Minds, Radiant Futures: Building Well-being, One Student at a Time"</b></p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section><!-- End Team Section -->
+
+      <!-- ======= Contact Section ======= -->
+      <section id="contact" class="contact">
+
+        <div class="container" data-aos="fade-up">
+
+          <header class="section-header">
+            <h2>Contact</h2>
+            <p>Contact Us</p>
+          </header>
+
+          <div class="row gy-4">
+            <div class="col-lg-6">
+
+              <div class="row gy-4">
+                <div class="col-md-6">
+                  <div class="info-box">
+                    <i class="bi bi-geo-alt"></i>
+                    <h3>Address</h3>
+                    <p>Palawan State University,<br>Puerto Princesa City, Palawan</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="info-box">
+                    <i class="bi bi-telephone"></i>
+                    <h3>Call Us</h3>
+                    <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="info-box">
+                    <i class="bi bi-envelope"></i>
+                    <h3>Email Us</h3>
+                    <p>info@example.com<br>contact@example.com</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="info-box">
+                    <i class="bi bi-clock"></i>
+                    <h3>Open Hours</h3>
+                    <p>Monday - Friday<br>9:00AM - 05:00PM</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-lg-6">
+
+              <form  action="{% url 'landingpage:feedback' %}" method="POST" class="php-email-form">
+                {% csrf_token %}
+                
+                <div class="row gy-4">
+
+                  <div class="col-md-6">
+                    <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                  </div>
+
+                  <div class="col-md-6 ">
+                    <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                  </div>
+
+                  <div class="col-md-12">
+                    <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+                  </div>
+
+                  <div class="col-md-12">
+                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+                  </div>
+
+                  {% if success %}
+                    <span class="text-success">{{ text }}</span>
+                  {% endif %}
+
+                  <div class="col-md-12 text-center">
+                    <button type="submit">Send Message</button>
+                  </div>
+
+                </div>
+              </form>
+
+            </div>
+
+          </div>
+        </div>
+
+      </section><!-- End Contact Section -->
+
+    </main><!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+
+      <div class="footer-top">
+        <div class="container">
+          <div class="row gy-4">
+            <div class="col-lg-5 col-md-12 footer-info">
+              <a href="{% url 'landingpage:home' %}" class="logo d-flex align-items-center">
+                <img src="{% static 'img/psu/psu.png' %}" alt="">
+                <img src="{% static 'img/psu/cs.png' %}" alt="">
+                <img src="{% static 'img/psu/osas.png' %}" alt="">
+                <span>IBPS-PSU</span>
+              </a>
+              <p>Nurturing Minds, Recognizing Burnout. Your Well-being Matters.</p>
+              <div class="social-links mt-3">
+                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+
+            <div class="col-lg-2 col-6 footer-links">
+              <h4>Useful Links</h4>
+              <ul>
+                <li><i class="bi bi-chevron-right"></i><a href="#hero">Home</a></li>
+                <li><i class="bi bi-chevron-right"></i><a href="#about">About</a></li>
+                <li><i class="bi bi-chevron-right"></i><a href="#services">Burnout Profiles</a></li>
+                <li><i class="bi bi-chevron-right"></i><a href="#team">Team</a></li>
+              </ul>
+            </div>
+
+            <div class="col-lg-2 col-6 footer-links">
+              <h4 style="visibility: hidden;">Contact Us</h4>
+              <ul>
+                <li><i class="bi bi-chevron-right"></i><a href="{% url 'landingpage:tos' %}">Terms of Services</a></li>
+                <li><i class="bi bi-chevron-right"></i><a href="{% url 'landingpage:privacy-policy' %}">Privacy Policy</a></li>
+                <li><i class="bi bi-chevron-right"></i><a href="#contact">Contact</a></li>
+                <li><i class="bi bi-chevron-right"></i><a href="#about">Sign In</a></li>
+              </ul>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="copyright">
+          &copy; Copyright <strong><span>IBPS</span></strong>. All Rights Reserved
+        </div>
+      </div>
+    </footer><!-- End Footer -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src=" {% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+    <script src="{% static 'vendor/aos/aos.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+  </body>
+
+</html>

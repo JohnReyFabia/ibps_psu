@@ -1,0 +1,469 @@
+{% load static %}
+{% load college_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Admin - Dashboard</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{% static 'img/ibps-logo.png' %}" rel="icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'css/admin-dashboard.css' %}" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top">
+      <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+        <a href="{% url 'landingpage:admin-dashboard' %}" class="logo d-flex align-items-center">
+          <img src="{% static 'img/psu/psu.png' %}" alt="">
+          <img src="{% static 'img/psu/cs.png' %}" alt="">
+          <img src="{% static 'img/psu/osas.png' %}" alt="">
+          <span>IBPS-PSU</span>
+        </a>
+
+        <nav id="navbar" class="navbar">
+          <ul>
+              <li><a class="nav-link scrollto {% if request.path == '/dashboard'%}active{% endif %}" href="{% url 'landingpage:admin-dashboard' %}">Dashboard</a></li>
+              <li class="dropdown">
+                <a href="#"><span class="{% if '/list/college/' in request.path %}active{% endif %}">Colleges</span> <i class="bi bi-chevron-down"></i></a>
+                <ul>  
+                  {% get_all_college as colleges %}
+                  {% for college in colleges %}
+                  <div class="college-container">
+                    <a class="collapse-item {% if college.code == current_code %}active{% endif %}" href="{% url 'landingpage:college-list' code=college.code %}">{{ college.code }}</a>
+                    <input type="checkbox" id="college_{{ college.id }}" {% if college.is_assessment_enabled %}checked{% endif %} class="checkbox-right">
+                </div>
+                  {% endfor %}
+              </ul>
+              
+                
+                
+              </li>
+              <!-- <li><a class="{% if request.path == '/list/student/'%}active{% endif %}" href="{% url 'landingpage:student-list' %}">Student</a></li> -->
+              <li><a class="{% if request.path == '/list/student/' or request.path == '/list/students/all/' or request.path == '/list/student/takers/' %}active{% endif %}" href="{% url 'landingpage:all-student-list' %}">Student</a></li>
+              <li class="dropdown">
+                <a href="#"><span class="{% if '/password/change' in request.path %}active{% endif %}">Account</span> <i class="bi bi-chevron-down"></i></a>
+                <ul>
+                  <li><a class="{% if request.path == '/password/change'%}active{% endif %}" href="{% url 'landingpage:change-password' %}">Change Password</a></li>
+                  <li><a href="{% url 'landingpage:logout' %}">Logout</a></li>
+                </ul>
+              </li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+      
+
+      </div>
+    </header><!-- End Header -->
+
+    <main id="main">
+      <section class="admin">
+
+        <div class="container" data-aos="fade-up">
+
+          <header class="section-header">
+            <div class="header-content">
+              <div class="header-text">
+                <ul>
+                  <li class="dropdown">
+                    {% if selected_college is None %}
+                      <a href="#"><span>Palawan State University</span><i class="bi bi-chevron-down"></i></a>
+                    {% else %}
+                      <a href="#"><span>{{ selected_college }}</span><i class="bi bi-chevron-down"></i></a>
+                    {% endif %}
+                    <ul>
+                      <li><a class="collapse-item {% if selected_college == None or selected_college == '' %}active{% endif %}" href="{% url 'landingpage:admin-dashboard' %}">Palawan State University</a></li>
+                      {% get_all_college as colleges %}
+                        {% for college in colleges %}
+                            <li>
+                                <a class="{% if college.college_name == selected_college %}active{% endif %}" href="{% url 'landingpage:admin-dashboard' %}?college_name={{ college.college_name }}" >{{ college.college_name }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                  </li>
+                  {% if selected_college %}
+                    <a href="{% url 'landingpage:admin_download_excel' %}?college_name={{ selected_college }}">
+                  {% else %}
+                    <a href="{% url 'landingpage:admin_download_excel' %}"> 
+                  {% endif %}
+                  <i class="bi bi-download"></i></a>
+                </ul>
+
+                <div class="total">
+                  <p>Total Student Takers:</p>
+                  {% if selected_college %}
+                    <h1><a href="{% url 'landingpage:student-takers-list' %}?college_name={{ selected_college }}" class="no_studs">{{ total_student_takers }}</a> / <a href="{% url 'landingpage:student-list' %}?college_name={{ selected_college }}" class="no_studs">{{ total_students }}</a></h1>
+                  {% else %}
+                    <h1><a href="{% url 'landingpage:student-takers-list' %}" class="no_studs">{{ total_student_takers }}</a> / <a href="{% url 'landingpage:student-list' %}" class="no_studs">{{ total_students }}</a></h1>
+                  {% endif %}
+
+                  <!-- <h1><a href="{% url 'landingpage:student-takers-list' %}" class="no_studs">{{ total_student_takers }}</a> / <a href="{% url 'landingpage:student-list' %}" class="no_studs">{{ total_students }}</a></h1> -->
+                  
+                </div>               
+              </div>            
+            </div>
+          </header>
+
+          <div class="admin-box-container">
+            <div class="admin-box1">
+              <a href="{% if selected_college %}{% url 'landingpage:engaged-student-list' college_name=selected_college %}{% else %}{% url 'landingpage:engaged-student-list-no-college' %}{% endif %}">
+                <h1 class="count">{{ overall_burnout_counts.Engaged.overall_count|default:0 }}</h1>
+                <p class="label">Engaged</p>
+              </a>   
+            </div>
+            
+            <div class="admin-box2">
+              <a href="{% if selected_college %}{% url 'landingpage:dandi-student-list' college_name=selected_college %}{% else %}{% url 'landingpage:dandi-student-list-no-college' %}{% endif %}">
+                <h1 class="count">{{ overall_burnout_counts.Disengaged_and_Ineffective.overall_count|default:0 }}</h1>
+                <p class="label2">Disengaged and Ineffective</p>
+              </a>
+            </div>
+  
+            <div class="admin-box3">
+              <a href="{% if selected_college %}{% url 'landingpage:oandi-student-list' college_name=selected_college %}{% else %}{% url 'landingpage:oandi-student-list-no-college' %}{% endif %}">
+                <h1 class="count">{{ overall_burnout_counts.Overextended_and_Ineffective.overall_count|default:0 }}</h1>
+                <p class="label3">Overextended and Ineffective</p>
+              </a>
+            </div>
+  
+            <div class="admin-box4">
+              <a href="{% if selected_college %}{% url 'landingpage:oandd-student-list' college_name=selected_college %}{% else %}{% url 'landingpage:oandd-student-list-no-college' %}{% endif %}">
+                <h1 class="count">{{ overall_burnout_counts.Overextended_and_Disengaged.overall_count|default:0 }}</h1>
+                <p class="label4">Overextended and Disengaged</p>
+              </a>
+            </div>
+  
+            <div class="admin-box5">
+              <a href="{% if selected_college %}{% url 'landingpage:ineffective-student-list' college_name=selected_college %}{% else %}{% url 'landingpage:ineffective-student-list-no-college' %}{% endif %}">
+                  <h1 class="count">{{ overall_burnout_counts.Ineffective.overall_count|default:0 }}</h1>
+                  <p class="label5">Ineffective</p>
+              </a>
+            </div>
+          
+  
+            <div class="admin-box6">
+              <a href="{% if selected_college %}{% url 'landingpage:disengaged-student-list' college_name=selected_college %}{% else %}{% url 'landingpage:disengaged-student-list-no-college' %}{% endif %}">
+                <h1 class="count">{{ overall_burnout_counts.Disengaged.overall_count|default:0 }}</h1>
+                <p class="label6">Disengaged</p> 
+              </a>
+            </div>
+  
+  
+            <div class="admin-box7">
+              <a href="{% if selected_college %}{% url 'landingpage:overextended-student-list' college_name=selected_college  %}{% else %}{% url 'landingpage:overextended-student-list-no-college' %}{% endif %}">
+                <h1 class="count">{{ overall_burnout_counts.Overextended.overall_count|default:0 }}</h1>
+                <p class="label7">Overextended</p>
+              </a>
+            </div>
+  
+  
+            <div class="admin-box8">
+              <a href="{% if selected_college %}{% url 'landingpage:burnedout-student-list' college_name=selected_college %}{% else %}{% url 'landingpage:burnedout-student-list-no-college' %}{% endif %}">
+                <h1 class="count">{{ overall_burnout_counts.Burned_out.overall_count|default:0 }}</h1>
+                <p class="label8">Burned out</p>
+              </a>
+            </div>
+
+          </div>
+          
+          <div class="col-md-12" data-aos="fade-up" data-aos-delay="400">
+            <div class="admin-box details">
+              <header class="takers-list">
+                <h2>Burnout Profiles Per Program</h2>
+                <!-- {% if selected_college %}
+                  <a href="{% url 'landingpage:admin_download_excel' %}?college_name={{ selected_college }}">
+                {% else %}
+                  <a href="{% url 'landingpage:admin_download_excel' %}"> 
+                {% endif %}
+                <i class="bi bi-download"></i></a> -->
+              </header>
+              <div class="timetable" id="timetable">
+                <table>
+                  <thead>
+                    <tr>
+                      <th class="program">Program</th>
+                      <th>Engaged</th>
+                      <th>Disengaged and Ineffective</th>
+                      <th>Overextended and Ineffective</th>
+                      <th>Overextended and Disengaged</th>
+                      <th>Ineffective</th>
+                      <th>Disengaged</th>
+                      <th>Overextended</th>
+                      <th>Burned out</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for program in program_info %}
+                      <tr>
+                        <td class="program">{{ program.program.program_name }}</td>
+                        <td>{{ program.burnout_counts.Engaged|default:0  }}</td>
+                        <td>{{ program.burnout_counts.Disengaged_and_Ineffective|default:0  }}</td>
+                        <td>{{ program.burnout_counts.Overextended_and_Ineffective|default:0  }}</td>
+                        <td>{{ program.burnout_counts.Overextended_and_Disengaged|default:0  }}</td>
+                        <td>{{ program.burnout_counts.Ineffective|default:0  }}</td>
+                        <td>{{ program.burnout_counts.Disengaged|default:0  }}</td>
+                        <td>{{ program.burnout_counts.Overextended|default:0  }}</td>
+                        <td>{{ program.burnout_counts.Burned_Out|default:0  }}</td>
+                      </tr>
+                    {% endfor %}
+                  
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row">
+            <!-- Burnout Profiles Per Gender -->
+            <div class="col-md-8" data-aos="fade-up" data-aos-delay="400">
+              <div class="admin-box details gender">
+                <header class="factors">
+                  <h2>Burnout Profiles Per Gender</h2>
+                </header>
+                <canvas id="horizontalMultiBarChart" width="400" height="200"></canvas>
+              </div>
+            </div>
+          
+            <!-- Burnout Factors -->
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+              <div class="admin-box details factor">
+                <header class="factors">
+                  <h2>Burnout Factors</h2>
+                </header>
+                <canvas id="keywordsDoughnutChart"></canvas>
+              </div>
+            </div>
+          </div>
+          
+
+          <div class="col-md-12" data-aos="fade-up" data-aos-delay="400">
+            <div class="admin-box details">
+              <header class="factors">
+                <h2>Burnout Profiles Per Age</h2>
+              </header>
+              <canvas id="multiBarChart" width="400" height="200"></canvas>
+            </div>
+          </div>
+
+
+          <div class="col-md-12" data-aos="fade-up" data-aos-delay="400">
+            <div class="admin-box details list">
+              <header class="takers-list">
+                <h2>List of Student Takers</h2>
+              </header>
+              <div class="timetable" id="timetable">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Student ID</th>
+                      <th>Email</th>
+                      <th>Program</th>
+                      <th>Burnout Profile</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for student in student_assessments %}
+                      <tr>
+                        <td>{{ student.student.student_id }}</td>
+                        <td>{{ student.student.email }}</td>
+                        <td>{{ student.student.program.program_name }}</td>
+                        <td class="{{ student.profile }}">{{ student.profile }}</td>
+                      </tr>
+                    {% empty %}
+                      <tr>
+                        <td colspan="4">No records yet</td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+          
+
+      </section><!-- End Services Section -->
+
+
+    </main><!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+      <div class="container">
+        <div class="copyright">
+          &copy; Copyright <strong><span>IBPS</span></strong>. All Rights Reserved
+        </div>
+      </div>
+    </footer><!-- End Footer -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+    <script src="{% static 'vendor/aos/aos.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+    <!-- <script src="{% static 'js/horizontalchart.js' %}"></script> -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      function handleFileUpload(event) {
+          const file = event.target.files[0];
+          const formData = new FormData();
+          formData.append('file', file);
+
+          fetch('/students/upload/', {
+              method: 'POST',
+              body: formData,
+              headers: {
+                  'X-CSRFToken': getCookie('csrftoken')
+              }
+          })
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error('Failed to upload file');
+              }
+              alert('Student added successfully');
+              console.log('File uploaded successfully');
+          })
+          .catch(error => {
+              console.error('Error uploading file:', error);
+              alert('An error occurred while uploading the file.');
+          });
+      }
+
+      function getCookie(name) {
+          const value = `; ${document.cookie}`;
+          const parts = value.split(`; ${name}=`);
+          if (parts.length === 2) return parts.pop().split(';').shift();
+      }
+    </script>
+    <script>
+      var extractedKeywords = {{ top_keywords|safe }};
+    </script>
+
+    <script>
+      var ageDataPerProfile = {{ age_data_per_profile|safe }};
+    </script>
+    
+    <script>
+      var ctx = document.getElementById('horizontalMultiBarChart').getContext('2d');
+    
+      var data = {
+        labels: {{ chart_labels|safe }},
+        datasets: [
+          {
+            label: 'Male',
+            backgroundColor: 'rgba(54, 162, 235, 0.7)',
+            data: {{ male_data|safe }}
+          },
+          {
+            label: 'Female',
+            backgroundColor: 'rgba(255, 99, 132, 0.7)',
+            data: {{ female_data|safe }}
+          },
+        ]
+      };
+    
+      var options = {
+        responsive: true,
+        maintainAspectRatio: false,
+        indexAxis: 'y',
+        scales: {
+          x: {
+            stacked: false
+          },
+          y: {
+            stacked: false
+          }
+        }
+      };
+    
+      var myhorizontalMultiBarChart = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+      });
+    </script>
+
+
+    <script>
+        $(document).ready(function() {
+            $('input[type="checkbox"]').change(function() {
+                var collegeId = $(this).attr('id').split('_')[1]; 
+                var isChecked = $(this).prop('checked');
+                var csrftoken = getCookie('csrftoken'); 
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/assessment/update/',
+                    headers: {
+                        'X-CSRFToken': csrftoken  
+                    },
+                    data: {
+                        'college_id': collegeId,
+                        'is_enabled': isChecked
+                    },
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            });
+
+            // Function to get CSRF token from cookie
+            function getCookie(name) {
+                var cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                    var cookies = document.cookie.split(';');
+                    for (var i = 0; i < cookies.length; i++) {
+                        var cookie = cookies[i].trim();
+                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            }
+        });
+    </script>
+
+    <!-- Template Main JS File -->
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/admin_doughnut.js' %}"></script>
+    <script src="{% static 'js/multichart.js' %}"></script>
+
+    
+    
+  </body>
+
+</html>

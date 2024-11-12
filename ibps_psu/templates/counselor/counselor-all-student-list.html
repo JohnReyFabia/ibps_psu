@@ -1,0 +1,121 @@
+{% extends "counselor/counselor-index.html" %}
+{% load static %}
+
+{% block title %}Counselor - Student{% endblock %}
+
+{% block content %}
+
+<section class="admin">
+  <div class="college-container">
+    <div class="college-header">
+      <div class="header-content">
+       
+        <h2>
+          List of All Students
+        </h2>
+      
+        <!-- <div class="search-bar">
+          <input type="text" placeholder="Search...">
+        </div> -->
+        <form method="GET" action="{% url 'landingpage:counselor-all-student-list' %}">
+          <div class="search-bar-list">
+              <input type="text" name="q" value="{{ search }}" placeholder="Search...">
+              <i class="fa fa-search search-icon"></i>
+          </div>
+      </form>
+      </div>
+    </div>
+    
+    <div class="college-body">
+      <table id="college-table">
+        <thead>
+          <tr>
+            <th>Student ID</th>
+            <th>Email</th>
+            <th>Program</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for student in students %}
+            <tr>
+              <td>{{ student.student_id }}</td>
+              <td>{{ student.email }}</td>
+              <td>{{ student.program.program_name }}</td>
+              <td>                
+                {% if student.assessment_exists is False %}
+                  <a href="" class="send-appointment-button" 
+                          data-email="{{ student.email }}"
+                          data-name="{{ student.first_name }} {{ student.middle_name }} {{ student.last_name }}"
+                          data-college="{{ student.program.college }}">
+                      Contact
+                  </a>
+                {% else %}
+                  <a href="{% url 'landingpage:student-profile' student.student_id %}">View</a>
+                {% endif %}
+              </td>
+             
+            </tr>
+            {% empty %}
+            <tr>
+              <td colspan="5">No records yet</td>
+            </tr>
+            
+          {% endfor %}
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  
+        
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const sendAppointmentButtons = document.querySelectorAll('.send-appointment-button');
+    sendAppointmentButtons.forEach(function(button) {
+        button.addEventListener('click', function (event) {
+            event.preventDefault(); 
+
+            // Get the student's email from the HTML data attributes
+            const studentEmail = this.getAttribute('data-email');
+            const studentName = this.getAttribute('data-name');
+            const collegeCounselor = this.getAttribute('data-college');
+
+            // Get the base URL
+            const baseUrl = window.location.origin;
+
+            // Construct the login URL by appending the login route to the base URL
+            const loginUrl = `${baseUrl}/login/`;
+
+            const initialMessage = `Dear ${studentName},
+
+I hope this message finds you well. I am reaching out to remind you to take the quarterly Burnout Assessment Exam.
+
+Please click the link below to get started.
+${loginUrl}
+
+[You can add more details].
+
+Best regards,
+${collegeCounselor} Counselor`;
+
+            // Encode the message for the URL
+            const encodedMessage = encodeURIComponent(initialMessage);
+
+            // Create the Gmail compose URL with the recipient's email and subject
+            const subject = "OSAS Reminder for the Burnout Assessment Examination";
+            const gmailComposeUrl = `mailto:${studentEmail}?subject=${subject}&body=${encodedMessage}`;
+
+            // Redirect to Gmail compose URL
+            window.location.href = gmailComposeUrl;
+        });
+    });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "counselor/counselor-index.html" %}
+{% load static %}
+
+{% block title %}Counselor - Student{% endblock %}
+
+{% block content %}
+
+<section class="admin">
+  <div class="college-container">
+    <div class="college-header">
+      <div class="header-content">
+       
+        <h2>
+          List of Burned Out Students
+        </h2>
+      
+        <!-- <div class="search-bar">
+          <input type="text" placeholder="Search...">
+        </div> -->
+        <form method="GET" action="{% url 'landingpage:counselor-burnedout-student-list' %}">
+          <div class="search-bar-list">
+              <input type="text" name="q" value="{{ search }}" placeholder="Search...">
+              <i class="fa fa-search search-icon"></i>
+          </div>
+      </form>
+      </div>
+    </div>
+    
+    <div class="college-body">
+      <table id="college-table">
+        <thead>
+          <tr>
+            <th>Student ID</th>
+            <th>Email</th>
+            <th>Program</th>
+            <th>Burnout Profile</th>
+            <th>View Profile</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for student in burnout_students %}
+            <tr>
+              <td>{{ student.student.student_id }}</td>
+              <td>{{ student.student.email }}</td>
+              <td>{{ student.student.program.program_name }}</td>
+              <td class="{{ student.profile }}">{{ student.profile }}</td>
+              <td><a href="{% url 'landingpage:student-profile' student.student.student_id %}">View</a></td>
+             
+            </tr>
+            {% empty %}
+            <tr>
+              <td colspan="5">No records yet</td>
+            </tr>
+            
+          {% endfor %}
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  
+        
+</section>
+
+{% endblock %}

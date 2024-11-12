@@ -1,0 +1,190 @@
+{% extends "includes/admin-counselor-navbar.html" %}
+{% load static %}
+{% load split_tag %}
+{% block title %}Student Profile{% endblock %}
+
+{% block content %}
+<main id="main">
+  <!-- ======= Services Section ======= -->
+  <section id="services" class="student">
+    <div class="container" data-aos="fade-up">
+      <header class="section-header">
+        <div class="header-content">
+          <div class="header-text">
+            <p>Student Burnout Profile</p>
+          </div>
+          <div class="appointment-container">
+            <a href="" id="sendAppointmentButton" class="appointment-button">Schedule Appointment</a>
+          </div>
+        </div>
+      </header>
+
+      <div class="row gy-4">
+        <div class="col-lg-8 col-md-12" data-aos="fade-up" data-aos-delay="400">
+          <div class="student-box details">
+            <h3><b>Name</b>: {{ student.first_name }} {{ student.middle_name }} {{ student.last_name }}</h3>
+            <h3><b>Student ID</b>: {{ student.student_id }}</h3>
+            <h3><b>Email</b>: {{ student.email }}</h3>
+            <h3><b>Contact Number</b>: {{ student.contact_number }}</h3>
+            <h3><b>College</b>: {{ student.program.college.college_name }}</h3>
+            <h3><b>Program</b>: {{ student.program.program_name }}</h3>
+          </div>
+          <br>
+          <div class="student-box statistic">
+            <p class="details-title">Burnout Assessment Result</p>
+            <canvas id="myChart"></canvas>
+            <div id="customTooltip"></div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-12" data-aos="fade-up" data-aos-delay="300">
+          <div class="student-box profile">
+            <img src="{{ burnout_profile.pic.url }}" class="img-fluid profile-image" alt="">
+            <h3>{{ burnout_profile }}</h3>
+            <p>{{ burnout_profile.description|first_sentence }}</p>
+          </div>
+          <br>
+          <div class="student-box pattern">
+            <p class="details-title">Score Pattern</p>
+            <h3><b>Exhaustion</b> = {{ assessment.ex_high }}</h3>
+            <h3><b>Cynicism</b> = {{ assessment.cy_high }}</h3>
+            <h3><b>Efficacy</b> = {{ assessment.ef_high }}</h3>
+          </div>
+        </div>
+        <div class="timetable" id="timetable">
+          <table>
+            <thead>
+              <tr>
+                <th>Question</th>
+                <th>Answer</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for question in student_survey %}
+                <tr>
+                  <td>{{ question.question.question }}</td>
+                  <td>{{ question.answer.choice }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                  <td colspan="2">No records yet</td>
+                </tr>
+              {% endfor %}
+    
+            </tbody>
+          </table>
+        </div>
+        
+        
+      </div>
+    </div>
+  </section>
+</main>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      const DATA_COUNT = 15;
+      const labels = Array.from({ length: DATA_COUNT }, (_, i) => `Question ${i + 1}`);
+      
+      const scores = JSON.parse('{{ scores | safe }}');
+      const answers = JSON.parse('{{ survey_answers | safe }}');
+      const questions = JSON.parse('{{ survey_questions | safe }}');
+
+      const data = {
+          labels: labels,
+          datasets: [
+              {
+                  label: 'Score',
+                  data: scores,
+                  borderColor: '#b8c0fc',
+                  backgroundColor: '#b8c0fc',
+                  borderWidth: 2,
+                  borderRadius: Number.MAX_VALUE,
+              },
+          ],
+      };
+
+      const ctx = document.getElementById('myChart').getContext('2d');
+      let isTooltipVisible = false;
+
+      const config = {
+          type: 'bar',
+          data: data,
+          options: {
+              responsive: true,
+              plugins: {
+                  legend: {
+                      display: false,
+                  },
+                  tooltip: {
+                      enabled: false, 
+                  },
+              },
+              interaction: {
+                  intersect: false,
+              },
+          },
+      };
+
+      const myChart = new Chart(ctx, config);
+
+      myChart.canvas.addEventListener('mousemove', (e) => {
+          const bar = myChart.getElementsAtEventForMode(e, 'nearest', { intersect: true })[0];
+          if (bar) {
+              const index = bar.index;
+              const question = questions[index];
+              const answer = answers[index];
+              const score = scores[index];
+              const rect = myChart.canvas.getBoundingClientRect();
+              const customTooltip = document.getElementById('customTooltip');
+              customTooltip.innerHTML = `Question ${index + 1}: ${question}<br>Answer: ${answer}<br>Score: ${score}`;
+              customTooltip.style.top = e.clientY - rect.top + 'px';
+              customTooltip.style.left = e.clientX - rect.left + 'px';
+              if (!isTooltipVisible) {
+                  customTooltip.style.display = 'block';
+                  isTooltipVisible = true;
+              }
+          } else {
+              const customTooltip = document.getElementById('customTooltip');
+              customTooltip.style.display = 'none';
+              isTooltipVisible = false;
+          }
+      });
+
+      const sendAppointmentButton = document.getElementById('sendAppointmentButton');
+      sendAppointmentButton.addEventListener('click', function (event) {
+        event.preventDefault(); 
+
+        // Get the student's email from the HTML
+        const studentEmail = "{{ student.email }}";
+        const studentName = "{{ student.first_name }} {{ student.middle_name }} {{ student.last_name }}";
+        const collegeCounselor = "{{ student.program.college }}";  // Corrected variable name
+
+        const initialMessage = `Dear ${studentName},
+
+I hope this message finds you well. I am reaching out to schedule a consultation regarding your Burnout Assessment Result.
+
+[You can add more details].
+
+Best regards,
+${collegeCounselor} Counselor`;
+
+        // Encode the message for the URL
+        const encodedMessage = encodeURIComponent(initialMessage);
+
+        // Create the Gmail compose URL with the recipient's email and subject
+        const subject = "OSAS Consultation for the Burnout Assessment Result";
+        const gmailComposeUrl = `mailto:${studentEmail}?subject=${subject}&body=${encodedMessage}`;
+
+        // Redirect to Gmail compose URL
+        window.location.href = gmailComposeUrl;
+      });
+
+  });
+</script>
+{% endblock %}

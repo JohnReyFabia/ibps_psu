@@ -1,0 +1,503 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+:root {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #444444;
+}
+
+a {
+  color:black;
+  text-decoration: none;
+}
+
+a:hover {
+  color:orangered;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Nunito", sans-serif;
+}
+
+p {
+  text-align: justify;
+  line-height: 2.0 !important; /* Use !important to ensure it takes precedence */
+}
+
+
+
+
+/*--------------------------------------------------------------
+# Sections
+--------------------------------------------------------------*/
+section {
+  /* margin-top: 5%; */
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.section-header {
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.section-header p {
+  margin: 10px 0 0 0;
+  padding: 0;
+  font-size: 30px;
+  line-height: 42px;
+  font-weight: 700;
+  color:#333;
+}
+
+@media (max-width: 768px) {
+  .section-header p {
+    font-size: 28px;
+    line-height: 32px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+.back-to-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 99999;
+  background: orange;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  transition: all 0.4s;
+}
+
+.back-to-top i {
+  font-size: 24px;
+  color: #fff;
+  line-height: 0;
+}
+
+.back-to-top:hover {
+  background: #6776f4;
+  color: #fff;
+}
+
+.back-to-top.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*--------------------------------------------------------------
+# Disable aos animation delay on mobile devices
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+  [data-aos-delay] {
+    transition-delay: 0 !important;
+  }
+}
+
+/*--------------------------------------------------------------
+# Student Dashboard Section
+--------------------------------------------------------------*/
+section.student {
+  padding: 8%;
+}
+
+.student .student-box.quote1 {
+  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.2);
+  height: 100px; 
+  padding: 60px 30px;
+  text-align: center;
+  transition: 0.3s;
+  border-radius: 16px;
+  background-color: #87CEEB;
+  margin-top: 25px;
+}
+
+.student .student-box.quote2 {
+    box-shadow: 0px 0 30px rgba(1, 41, 112, 0.2);
+    height: 170px; 
+    padding: 60px 30px;
+    text-align: center;
+    transition: 0.3s;
+    border-radius: 16px;
+    background-color: #FFD700;
+  }
+
+.student .student-box.quote3 {
+    box-shadow: 0px 0 30px rgba(1, 41, 112, 0.2);
+    height: 100px; 
+    padding: 60px 30px;
+    text-align: center;
+    transition: 0.3s;
+    border-radius: 16px;
+    background-color: #98FB98;
+    margin-top: 25px;
+  }
+
+.student .student-box.quote1 h3 {
+    margin-top: -25px;
+    text-align: center;
+    color: #444444;
+    font-size: 16px;
+}
+
+.student .student-box.quote2 h3 {
+    margin-top: 50px;
+    text-align: center;
+    color: #444444;
+    font-size: 16px;
+}
+
+.student .student-box.quote3 h3 {
+    margin-top: -20px;
+    text-align: center;
+    color: #444444;
+    font-size: 16px;
+}
+
+.student .student-box.details {
+  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+  height: 460px; 
+  padding: 30px 50px;
+  text-align: center;
+  transition: 0.3s;
+  border-radius: 10px;
+  margin-top: 50px;
+  position: relative;
+}
+
+/* .student .student-box.details img {
+  margin-top: -30px;
+  height: 385px;
+  width: auto;
+} */
+
+.student .student-box.details .profile {
+    position: absolute;
+    left: -100px; 
+    top: 90px;
+    height: 400px;
+    margin-right: 50px;
+
+}
+
+.student .student-box.details .profile-title {
+    margin-left: 230px; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 26px;
+}
+
+.student .student-box.details .profile-details {
+    margin-top: 25px;
+    margin-left: 210px; 
+    font-size: 13px;
+    text-transform: capitalize;
+    display: flex;
+    justify-content: space-between;    
+}
+
+
+
+/* .student .student-box.details .profile-details .keyword {
+  font-weight: bold;
+} */
+
+.student .student-box.details .profile-details .answer {
+  text-align: right;
+}
+
+.student .student-box.details .profile-desc {
+    margin-top: 25px;
+    margin-left: 200px; 
+    font-size: 15px;
+}
+
+
+.student .student-box .details-title{
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  text-align: center;
+  margin: -30px;
+  color: #333;
+  text-transform: uppercase;
+}
+
+.student .student-box .title{
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    text-align: center;
+    color: #333;
+    font-family: "Nunito", sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.student .student-box .icon {
+  font-size: 36px;
+  padding: 40px 20px;
+  border-radius: 4px;
+  position: relative;
+  margin-bottom: 25px;
+  display: inline-block;
+  line-height: 0;
+  transition: 0.3s;
+}
+
+.student .student-box.details li {
+  color: #444444;
+  font-size: 15px;
+  text-align: left;
+  margin-top: 3%;
+  margin-left: 50%;
+  list-style: none;
+}
+
+.student .student-box.details p {
+    color: #333;
+    font-weight: 700;
+    font-size: 24px;
+    font-family: "Nunito", sans-serif;
+    text-align: center;
+    margin-top: 2%;
+  }
+
+.student .student-box.pattern h3 {
+  color: #444444;
+  font-size: 15px;
+  text-align: left;
+  margin-top: 2%;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-text {
+  flex: 1;
+}
+
+.appointment-container {
+  margin-top: -70px; 
+}
+
+.appointment-button {
+  background-color: orange;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px; 
+  font-weight: bold; 
+  text-transform: uppercase; 
+}
+
+
+.appointment-button:hover {
+  background-color:#6776f4; 
+  color: #fff;
+}
+
+@media (max-width: 870px) {
+  section.student {
+    margin: 5%;
+    padding: 10%;
+  }
+
+  .student .student-box.details img.profile {
+    display: none;
+ }
+  .student .student-box.details {
+    /* margin-top: -20px; */
+    height: 550px;
+    width: auto;
+  }
+
+  .student .student-box.details.help {
+    /* margin-top: -20px; */
+    height: 500px;
+    width: auto;
+  }
+
+  .student .student-box.details img {
+    /* margin-top: -20px; */
+    height: 220px;
+    width: auto;
+    margin-bottom: 120px;
+    /* display: none; */
+  }
+
+  .student .student-box .title{
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    text-align: center;
+    color: #333;
+    font-family: "Nunito", sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  } 
+
+  .header-content {
+    display: block;
+  }
+  
+  .header-text {
+    flex: 0;
+    margin-bottom: 5%;
+  }
+
+  .appointment-button {
+    background-color: orange;
+    color: #fff;
+    padding: 15px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px; 
+    font-weight: bold; 
+    text-transform: uppercase; 
+  }
+  
+  
+  .appointment-button:hover {
+    background-color: #6776f4;
+    color: #fff;
+  }
+  
+  /* .student .student-box.details .profile {
+    position: absolute;
+    left: -100px; 
+    top: 180px;
+    height: 300px;
+    margin-right: 50px;
+
+  } */
+
+  .student .student-box.details .profile-title {
+    margin: 0 10% 0 10%;
+    font-size: 20px; /*change*/
+  }
+
+  .student .student-box.details .profile-details {
+    margin-top: 30px; /*change*/
+    margin-left: 0px; /*change*/
+    font-size: 12px;
+  }
+
+
+  .student .student-box.details .profile-desc {
+      margin-top: 40px; /*change*/
+      margin-left: 0px; /*change*/
+      font-size: 13px; /*change*/
+  }
+}
+
+@media (max-width: 570px) {
+  section.student {
+    margin: 5%;
+    padding: 10%;
+  }
+
+  .student .student-box.quote1 h3 {
+    margin-top: -30px;
+  } 
+
+  .student .student-box.quote3 h3 {
+    margin-top: -30px;
+  } 
+
+  .student .student-box.details img.profile {
+   display: none;
+  }
+  .student .student-box.details.help {
+    /* margin-top: -20px; */
+    height: 440px;
+    width: auto;
+  }
+
+  .student .student-box.details img {
+      /* margin-top: -20px; */
+      height: 170px;
+      width: auto;
+      margin-bottom: 0px;
+      /* display: none; */
+  }
+
+  .header-content {
+    display: block;
+  }
+  
+  .header-text {
+    flex: 0;
+    margin-bottom: 5%;
+  }
+
+  .appointment-container {
+    margin-top: 50px;
+  }
+
+  .appointment-button {
+    background-color: orange;
+    color: #fff;
+    padding: 10px 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 7px; 
+    font-weight: bold; 
+    text-transform: uppercase; 
+  }
+  
+  
+  .appointment-button:hover {
+    background-color:  #6776f4; 
+    color: #fff;
+  }
+  
+  /* .student .student-box.details .profile {
+    position: absolute;
+    left: -100px; 
+    top: 230px;
+    height: 250px;
+    margin-right: 20px;
+
+    } */
+
+  .student .student-box.details .profile-title {
+    margin: 0 10% 0 10%;
+    font-size: 20px; /*change*/
+  }
+
+  .student .student-box.details .profile-details {
+    margin-top: 30px; /*change*/
+    margin-left: 0px; /*change*/
+    font-size: 11px; /*change*/
+  }
+    
+    
+  .student .student-box.details .profile-desc {
+    margin-top: 40px; /*change*/
+    margin-left: 0px; /*change*/
+    font-size: 13px; /*change*/
+  }
+}
+
+

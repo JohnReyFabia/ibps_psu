@@ -1,0 +1,77 @@
+{% extends "student/student-index.html" %}
+{% load static %} 
+
+{% block title %}Student Assessment{% endblock %}
+
+{% block style %}
+<link href="{% static 'css/assessment-1.css' %}" rel="stylesheet">
+<link href="{% static 'css/pop-up.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+        
+<main id="main">
+  <!-- ======= About Section ======= -->
+  <section id="assess" class="assess d-flex align-items-center">
+
+    <div class="container">
+      <!-- The pop-up container -->
+      <div id="popup" class="popup">
+        <div class="popup-content">
+          
+          <p>It is recommended to update your password. Click the button below to get started:</p>
+          <a href="{% url 'landingpage:change-password' %}" class="update-profile-btn">Change Password</a>
+        </div>
+      </div>
+
+      <div id="popup2" class="popup">
+        <div class="popup-content">         
+          <p>The assessment is not available in your college yet. Contact your college counselor if it was a mistake.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center">
+          <h1 data-aos="fade-up">Burnout Assessment Test</h1>
+          <h2 data-aos="fade-up" data-aos-delay="400">Burnout is a state of emotional, physical, and mental exhaustion caused by excessive and prolonged stress. It often results from feeling overwhelmed, drained, and unable to meet constant demands, particularly in work or academic settings. Symptoms may include feeling detached, experiencing a lack of motivation, and a decline in performance.</h2>
+          <div data-aos="fade-up" data-aos-delay="600">
+            <div class="text-center text-lg-start">
+              <a href="{% url 'landingpage:student-assessment2' %}" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                <span>Continue</span>
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 assess-img" data-aos="zoom-out" data-aos-delay="200">
+          <img src="{% static 'img/assessment.png' %}" class="img-fluid" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</main><!-- End #main -->
+
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    // JavaScript to show the pop-up when the student first register
+    window.addEventListener('load', function() {
+      var popup = document.getElementById('popup');
+      var popup2 = document.getElementById('popup2');
+      var closePopup = document.getElementById('close-popup');
+
+      var passwordUpdated = {% if student.is_password_updated %}true{% else %}false{% endif %};
+      var assessmentAvailable = {% if college.is_assessment_enabled %}true{% else %}false{% endif %};
+
+      if (!passwordUpdated) {
+        popup.style.display = 'block';
+      }
+      if (!assessmentAvailable) {
+        popup2.style.display = 'block';
+      }
+    });
+  </script>
+{% endblock %}

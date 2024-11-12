@@ -1,0 +1,45 @@
+{% extends "student/student-index.html" %}
+{% load static %} 
+
+{% block title %}Student Result{% endblock %}
+
+{% block content %}
+<main id="main">
+
+  <!-- ======= Services Section ======= -->
+  <section id="services" class="student-result">
+
+    <div class="container" data-aos="fade-up">
+
+      <!-- <header class="section-header">
+        <h2>Burnout Profiles</h2>
+        <p>Your Burnout Profile</p>
+      </header> -->
+
+      <div class="row gy-4">
+
+        <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-box {% if burnout_profile.profile == 'Engaged' %}engaged{% elif burnout_profile.profile == 'Ineffective' %}ineffective{% elif burnout_profile.profile == 'Overextended' %}overextended{% elif burnout_profile.profile == 'Disengaged' %}disengaged{% elif burnout_profile.profile == 'Burned Out' %}burnout{% elif burnout_profile.profile == 'Disengaged and Ineffective' %}disengaged-ineffective{% elif burnout_profile.profile == 'Overextended and Ineffective' %}overextended-ineffective{% elif burnout_profile.profile == 'Overextended and Disengaged' %}overextended-disengaged{% endif %}">
+            <h6>Your Profile is:</h6>
+            <h3>{{ burnout_profile }}</h3>
+            <img src="{{ burnout_profile.pic.url }}" class="img-fluid profile-sudent" alt="">
+            <br>
+            <p>{{ burnout_profile.description }}
+              <br><br>
+            </p>
+            <p class="box">{{ burnout_profile.remarks }}</p>
+            <!-- <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section><!-- End Services Section -->
+
+
+
+</main><!-- End #main -->
+{% endblock %}
+
+
